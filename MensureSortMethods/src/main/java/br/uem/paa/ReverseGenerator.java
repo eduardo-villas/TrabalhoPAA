@@ -1,11 +1,14 @@
 package br.uem.paa;
 
-public class ReverseGenerator implements ArrayGenerator {
+public class ReverseGenerator extends ArrayGenerator {
+
 
 	@Override
-	public long[] generate(long[] array) {
-		// TODO Auto-generated method stub
-		return null;
+	void fillArray(long[] array) {
+		int length = array.length;
+		for (int i = 0; i < array.length; ++i) {
+			array[i] = length--;
+		}
 	}
 
 	@Override

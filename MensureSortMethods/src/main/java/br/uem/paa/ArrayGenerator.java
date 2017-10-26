@@ -1,9 +1,21 @@
 package br.uem.paa;
 
-public interface ArrayGenerator {
+public abstract class ArrayGenerator {
 
-	public long[] generate(long[] array);
+	public final long[] generate(long[] array) {
+		if (array == null) {
+			array = new long[10000];
+		} else {
+			array = new long[array.length + 10000];
+		}
 
-	public StatisticGenerator getStatisticGenerator(String string);
+		fillArray(array);
+
+		return array;
+	}
+
+	abstract void fillArray(long[] array);
+
+	public abstract StatisticGenerator getStatisticGenerator(String string);
 
 }
