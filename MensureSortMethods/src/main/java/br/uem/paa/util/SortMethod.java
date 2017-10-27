@@ -1,9 +1,7 @@
-package br.uem.paa;
+package br.uem.paa.util;
 
 public interface SortMethod {
 
 	public long run(long[] array);
-
-	public String getName();
 
 }

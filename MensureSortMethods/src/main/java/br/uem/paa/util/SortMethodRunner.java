@@ -1,4 +1,4 @@
-package br.uem.paa;
+package br.uem.paa.util;
 
 public class SortMethodRunner {
 
@@ -18,14 +18,14 @@ public class SortMethodRunner {
 	private void runMethodArray(SortMethod sortMethod, ArrayGenerator arrayGenerator) {
 		
 		long miliSeconds = 0;
-		StatisticGenerator statisticGenerator = arrayGenerator.getStatisticGenerator(sortMethod.getName());
-		while (miliSeconds == 0 || (miliSeconds / 1000) > 60) {
+		StatisticGenerator statisticGenerator = arrayGenerator.getStatisticGenerator(sortMethod.getClass()
+				.getSimpleName().toLowerCase() + ":Type:.xls");
+
+		do {
 			long array[] = null;
 			array = arrayGenerator.generate(array);
 			miliSeconds = sortMethod.run(array);
-			statisticGenerator.generate(miliSeconds);
-		}
-		
+			statisticGenerator.writeLine(array.length, miliSeconds);
+		} while (miliSeconds > 60000);
 	}
-
 }

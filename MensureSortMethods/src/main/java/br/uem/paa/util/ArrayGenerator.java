@@ -1,4 +1,4 @@
-package br.uem.paa;
+package br.uem.paa.util;
 
 public abstract class ArrayGenerator {
 
