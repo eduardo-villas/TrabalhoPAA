@@ -2,11 +2,11 @@ package br.uem.paa.util;
 
 public abstract class ArrayGenerator {
 
-	public final long[] generate(long[] array) {
+	public final int[] generate(int[] array) {
 		if (array == null) {
-			array = new long[10000];
+			array = new int[10000];
 		} else {
-			array = new long[array.length + 10000];
+			array = new int[array.length + 10000];
 		}
 
 		fillArray(array);
@@ -14,7 +14,7 @@ public abstract class ArrayGenerator {
 		return array;
 	}
 
-	abstract void fillArray(long[] array);
+	abstract void fillArray(int[] array);
 
 	public abstract StatisticGenerator getStatisticGenerator(String string);
 

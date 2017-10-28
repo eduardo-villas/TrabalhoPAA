@@ -4,7 +4,7 @@ public class ReverseGenerator extends ArrayGenerator {
 
 
 	@Override
-	void fillArray(long[] array) {
+	void fillArray(int[] array) {
 		int length = array.length;
 		for (int i = 0; i < array.length; ++i) {
 			array[i] = length--;

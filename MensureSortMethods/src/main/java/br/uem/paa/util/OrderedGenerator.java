@@ -3,7 +3,7 @@ package br.uem.paa.util;
 public class OrderedGenerator extends ArrayGenerator {
 
 	@Override
-	void fillArray(long[] array) {
+	void fillArray(int[] array) {
 		for (int i = 0; i < array.length; ++i) {
 			array[i] = i;
 		}

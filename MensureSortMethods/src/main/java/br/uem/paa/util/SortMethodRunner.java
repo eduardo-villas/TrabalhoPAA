@@ -10,6 +10,10 @@ public class SortMethodRunner {
 		this.sortMethod = sortMethod;
 	}
 
+	public String getSorMethodName() {
+		return this.sortMethod.getClass().getSimpleName();
+	}
+	
 	public void runMethod() {
 		runMethodArray(sortMethod, reverseArrayGenerator);
 		runMethodArray(sortMethod, orderedArrayGenerator);
@@ -21,7 +25,7 @@ public class SortMethodRunner {
 		StatisticGenerator statisticGenerator = arrayGenerator
 				.getStatisticGenerator(sortMethod.getClass().getSimpleName().toLowerCase() + ":Type:.xls");
 
-		long array[] = null;
+		int array[] = null;
 		do {
 			array = arrayGenerator.generate(array);
 			miliSeconds = sortMethod.run(array);
