@@ -10,8 +10,10 @@ public class StatisticGenerator {
 
 	private String fileName;
 	private PrintWriter printWriter;
+	private int writers;
 
 	public StatisticGenerator(String fileName) {
+		this.writers = 0;
 		this.fileName = fileName;
 		printWriter = createPrinter();
 	}
@@ -33,10 +35,15 @@ public class StatisticGenerator {
 
 	void writeLine(long tamanho, long miliSeconds){
 		printWriter.write(String.format("%d; %d \n", tamanho, miliSeconds));
-		printWriter.flush();
+		++this.writers;
+		if (this.writers >= 1000) {
+			this.writers = 0;
+			printWriter.flush();
+		}
 	}
 	
 	void close() {
+		printWriter.flush();
 		printWriter.close();
 	}
 
