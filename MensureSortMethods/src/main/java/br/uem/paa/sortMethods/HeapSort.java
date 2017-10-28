@@ -32,13 +32,8 @@ public class HeapSort implements SortMethod {
 	}
 
 	@Override
-	public long run(int[] array) {
-
-		long initTime = System.currentTimeMillis();
+	public void run(int[] array) {
 		heap(array);
-		long finalTime = System.currentTimeMillis();
-
-		return finalTime - initTime;
 	}
 
 	private void heap(int[] array) {

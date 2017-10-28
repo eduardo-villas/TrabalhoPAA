@@ -30,13 +30,8 @@ public class BubbleSort implements SortMethod {
 	}
 
 	@Override
-	public long run(int[] array) {
-
-		long initTime = System.currentTimeMillis();
+	public void run(int[] array) {
 		bubbleSort(array);
-		long finalTime = System.currentTimeMillis();
-
-		return finalTime - initTime;
 
 	}
 
