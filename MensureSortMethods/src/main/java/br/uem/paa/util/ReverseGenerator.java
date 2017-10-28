@@ -13,13 +13,8 @@ public class ReverseGenerator extends ArrayGenerator {
 
 	@Override
 	public StatisticGenerator getStatisticGenerator(String nameOfClass) {
-		StatisticGenerator statisticGenerator = new StatisticGenerator(nameOfClass) {
-			@Override
-			protected String getFileName(String fileName) {
-				return fileName.replace(":Type:", "reverse");
-			}
-		};
-		return statisticGenerator;
+		return new StatisticGenerator(nameOfClass.replace(":Type:", "reverse"));
+
 	}
 
 

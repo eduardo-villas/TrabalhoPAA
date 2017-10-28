@@ -6,13 +6,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public abstract class StatisticGenerator {
+public class StatisticGenerator {
 
 	private String fileName;
 	private PrintWriter printWriter;
 
 	public StatisticGenerator(String fileName) {
-		this.fileName = getFileName(fileName);
+		this.fileName = fileName;
 		printWriter = createPrinter();
 	}
 
@@ -23,6 +23,7 @@ public abstract class StatisticGenerator {
 			Files.createFile(path);
 			PrintWriter printWriter = new PrintWriter(fileName);
 			printWriter.write("Tamanho da Entrada;Tempo de Execução\n");
+			printWriter.flush();
 			return printWriter;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -31,10 +32,12 @@ public abstract class StatisticGenerator {
 	}
 
 	void writeLine(long tamanho, long miliSeconds){
-		printWriter.write(String.format("%d; %d \n"));
+		printWriter.write(String.format("%d; %d \n", tamanho, miliSeconds));
 		printWriter.flush();
 	}
-
-	protected abstract String getFileName(String fileName);
+	
+	void close() {
+		printWriter.close();
+	}
 
 }
