@@ -6,8 +6,15 @@
  * user guide available at https://docs.gradle.org/3.5/userguide/java_library_plugin.html
  */
 
-// Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
+// Apply the java plugin to add support for Java
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+mainClassName = 'br.uem.paa.app.Main'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -17,11 +24,6 @@ repositories {
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:21.0'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
