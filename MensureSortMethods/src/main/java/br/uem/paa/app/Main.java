@@ -8,7 +8,7 @@ import br.uem.paa.util.SortMethodRunner;
 public class Main {
     public static void main(String[] args) {
     	run(new SortMethodRunner(new BubbleSort()));
-  //      run(new SortMethodRunner(new MergeSort()));
+        run(new SortMethodRunner(new MergeSort()));
         run(new SortMethodRunner(new HeapSort()));
     }
 

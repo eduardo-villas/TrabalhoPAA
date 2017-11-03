@@ -4,9 +4,9 @@ public abstract class ArrayGenerator {
 
 	public final int[] generate(int[] array) {
 		if (array == null) {
-			array = new int[10000];
+			array = new int[20000];
 		} else {
-			array = new int[array.length + 10000];
+			array = new int[array.length + 20000];
 		}
 
 		fillArray(array);

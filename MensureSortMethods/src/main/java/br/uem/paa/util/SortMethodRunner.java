@@ -20,21 +20,24 @@ public class SortMethodRunner {
 	}
 
 	private void runMethodArray(SortMethod sortMethod, ArrayGenerator arrayGenerator) {
-
+		int count = 0;
 		StatisticGenerator statisticGenerator = arrayGenerator
 				.getStatisticGenerator(sortMethod.getClass().getSimpleName().toLowerCase() + ":Type:.xls");
 
 		int array[] = null;
 		long miliSeconds = 0;
 		do {
+			count++;
 			array = arrayGenerator.generate(array);
-			
+
 			long initTime = System.currentTimeMillis();
 			sortMethod.run(array);
 			long finalTime = System.currentTimeMillis();
 			miliSeconds = finalTime - initTime;
-			
+
 			statisticGenerator.writeLine(array.length, miliSeconds);
+			System.out.println("Numero de arrays criados: " + count);
+			System.out.println("Tempo para ordená-lo: " + miliSeconds);
 		} while (miliSeconds < 60000);
 
 		statisticGenerator.close();
